@@ -110,34 +110,23 @@ img {
 }
 
 
-/* Логотип в темном блоке */
+/* ЛОГОТИП-КАРТИНКА */
 
-.logo-box {
-    background: #333;
-    padding: 12px 20px;
-    text-align: center;
-    margin-top: -10px;
-    margin-bottom: -10px;
+.logo-wrapper {
+    display: flex;
+    align-items: center;
+    /* Убираем лишние отступы, если были */
+    padding: 0;
 }
 
-.logo-text {
-    font-weight: 900;
-    font-size: 1.4rem;
-    color: #93a385;
-    /* Оливковый */
-    line-height: 1;
-}
-
-.logo-text span {
-    color: var(--white);
-}
-
-.logo-slogan {
-    font-size: 7px;
-    color: var(--white);
-    letter-spacing: 1px;
-    margin-top: 4px;
-    text-transform: uppercase;
+.custom-logo {
+    /* Регулируйте высоту логотипа здесь */
+    max-height: 50px;
+    width: auto;
+    /* Ширина подстроится автоматически */
+    object-fit: contain;
+    /* Если логотип черный, а фон темный, можно добавить фильтр для инверсии цвета: */
+    /* filter: brightness(0) invert(1); */
 }
 
 
@@ -525,4 +514,401 @@ img {
     .section-header h2 {
         font-size: 2.2rem;
     }
+}
+
+
+/* --- СИСТЕМА БАЛЛОВ И ВХОДА --- */
+
+
+/* Класс для скрытия элементов */
+
+.hidden {
+    display: none !important;
+}
+
+
+/* Контейнер в хедере справа */
+
+.user-actions {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+}
+
+
+/* Желтая плашка с баллами */
+
+.points-display {
+    background: var(--accent-sand);
+    color: var(--primary-green);
+    padding: 6px 14px;
+    border-radius: 50px;
+    font-weight: 800;
+    font-size: 13px;
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+
+/* Имя пользователя */
+
+.user-name {
+    color: var(--white);
+    font-weight: 700;
+    font-size: 14px;
+    border-bottom: 2px solid var(--accent-sand);
+}
+
+
+/* Блок цены и кнопки в карточке */
+
+.price-block {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 20px;
+    padding-top: 15px;
+    border-top: 1px solid rgba(0, 0, 0, 0.1);
+}
+
+.price {
+    font-weight: 900;
+    font-size: 1.1rem;
+    color: var(--text-dark);
+}
+
+.btn-buy {
+    background: var(--primary-green);
+    color: var(--white);
+    border: none;
+    padding: 10px 24px;
+    border-radius: 50px;
+    cursor: pointer;
+    font-family: var(--font-main);
+    font-weight: 700;
+    font-size: 0.8rem;
+    text-transform: uppercase;
+    transition: 0.3s;
+}
+
+.btn-buy:hover {
+    background: var(--accent-sand);
+    color: var(--primary-green);
+    transform: translateY(-2px);
+}
+
+
+/* --- Стили Модального окна --- */
+
+.modal {
+    display: none;
+    position: fixed;
+    z-index: 1000;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.6);
+    backdrop-filter: blur(8px);
+    /* Эффект размытия фона */
+}
+
+.modal-content {
+    background-color: var(--white);
+    margin: 10% auto;
+    padding: 40px;
+    border-radius: 20px;
+    width: 90%;
+    max-width: 400px;
+    position: relative;
+    box-shadow: 0 15px 40px rgba(0, 0, 0, 0.2);
+}
+
+.close-modal {
+    position: absolute;
+    right: 20px;
+    top: 15px;
+    font-size: 24px;
+    cursor: pointer;
+    color: var(--text-dark);
+    opacity: 0.5;
+}
+
+.close-modal:hover {
+    opacity: 1;
+}
+
+.full-width {
+    width: 100%;
+    margin-top: 20px;
+}
+
+.switch-auth {
+    margin-top: 20px;
+    font-size: 14px;
+    color: var(--text-dark);
+}
+
+.switch-auth a {
+    color: var(--primary-green);
+    font-weight: bold;
+}
+
+
+/* --- НОВЫЙ ДИЗАЙН МОДАЛЬНОГО ОКНА (Frame 5) --- */
+
+
+/* Контейнер окна */
+
+.modal-content.custom-auth-style {
+    background-color: #FFFFFF;
+    /* Чистый белый фон */
+    border-radius: 40px;
+    /* Сильное скругление углов окна */
+    padding: 60px 40px 40px;
+    /* Большие отступы внутри */
+    text-align: center;
+    max-width: 420px;
+    box-shadow: 0 20px 50px rgba(0, 0, 0, 0.15);
+    border: none;
+}
+
+
+/* Заголовок "Вход" */
+
+.custom-auth-style h2 {
+    font-size: 3rem;
+    /* Крупный шрифт */
+    font-weight: 0;
+    /* Жирное начертание */
+    color: #000000;
+    /* Черный цвет */
+    margin-bottom: 40px;
+    /* Отступ до полей */
+    text-transform: none;
+    /* Убираем капс, если был */
+    letter-spacing: normal;
+}
+
+
+/* Поля ввода (Логин, Пароль) */
+
+.pill-input {
+    width: 100%;
+    background-color: #D4C5A9;
+    /* Бежевый цвет (песочный) */
+    border: none;
+    border-radius: 50px;
+    /* Форма пилюли */
+    padding: 20px 30px;
+    /* Высота поля */
+    margin-bottom: 15px;
+    /* Отступ между полями */
+    font-size: 1.2rem;
+    /* Размер текста */
+    color: #1a1a1a;
+    /* Цвет текста при вводе */
+    outline: none;
+    font-family: var(--font-main);
+}
+
+
+/* Цвет плейсхолдера (подсказки) */
+
+.pill-input::placeholder {
+    color: #1a1a1a;
+    /* Темный цвет, как на макете */
+    opacity: 1;
+}
+
+
+/* Кнопка "Войти" */
+
+.btn-pill-green {
+    width: 100%;
+    background-color: #3A4D39;
+    /* Темно-зеленый */
+    color: #FFFFFF;
+    border: none;
+    border-radius: 50px;
+    /* Форма пилюли */
+    padding: 20px;
+    /* Высота кнопки */
+    font-size: 1.2rem;
+    cursor: pointer;
+    margin-top: 10px;
+    /* Отступ сверху */
+    font-family: var(--font-main);
+    font-weight: 400;
+    /* Обычная толщина шрифта, как на макете */
+    transition: transform 0.2s, background-color 0.2s;
+}
+
+.btn-pill-green:hover {
+    transform: scale(1.02);
+    background-color: #2e3d2d;
+}
+
+
+/* Ссылка "Зарегистрироваться" */
+
+.switch-auth.text-right {
+    text-align: right;
+    /* Выравнивание по правому краю */
+    margin-top: 15px;
+    font-size: 0.9rem;
+    color: #000000;
+}
+
+.switch-auth a {
+    color: #000000;
+    /* Черная ссылка */
+    text-decoration: none;
+    font-weight: 500;
+    font-size: 14px;
+}
+
+.switch-auth a:hover {
+    text-decoration: underline;
+}
+
+
+/* Крестик закрытия */
+
+.close-modal {
+    top: 25px;
+    right: 30px;
+    font-size: 30px;
+    color: #aaa;
+    transition: 0.3s;
+}
+
+.close-modal:hover {
+    color: #000;
+}
+
+
+/* --- СТИЛИ ДЛЯ УВЕДОМЛЕНИЙ --- */
+
+
+/* Доп. класс для контента уведомления, чтобы оно не было слишком широким */
+
+.modal-notification-content {
+    max-width: 500px;
+    text-align: center;
+}
+
+
+/* Красивый текст сообщения */
+
+#notify-message {
+    font-family: var(--font-main);
+    color: #1a1a1a;
+    line-height: 1.5;
+}
+
+
+/* Кнопка отмены (серая) */
+
+#btn-cancel {
+    background-color: #b0b0b0;
+    /* Серый цвет */
+}
+
+#btn-cancel:hover {
+    background-color: #888;
+}
+
+
+/* Крестик закрытия уведомления */
+
+.close-notification {
+    position: absolute;
+    right: 30px;
+    top: 25px;
+    font-size: 30px;
+    cursor: pointer;
+    color: #aaa;
+    transition: 0.3s;
+}
+
+.close-notification:hover {
+    color: #000;
+}
+
+
+/* --- Обновленные стили для карточек с двумя кнопками --- */
+
+.price-block-col {
+    margin-top: 20px;
+    padding-top: 15px;
+    border-top: 1px solid rgba(0, 0, 0, 0.1);
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.price-block-col .price {
+    font-weight: 900;
+    font-size: 1.3rem;
+    /* Чуть крупнее */
+    color: var(--text-dark);
+}
+
+.buttons-row {
+    display: flex;
+    gap: 10px;
+    justify-content: space-between;
+}
+
+
+/* Общий стиль кнопок */
+
+
+/* Общий стиль кнопок */
+
+.btn-buy {
+    flex: 1;
+    background: var(--primary-green);
+    color: var(--white);
+    border: none;
+    padding: 12px 5px;
+    /* Чуть больше высоты */
+    border-radius: 50px;
+    cursor: pointer;
+    font-family: var(--font-main);
+    /* ИЗМЕНЕНИЯ ЗДЕСЬ: */
+    font-weight: 800;
+    /* Было 700, стало жирнее (ExtraBold) */
+    font-size: 0.85rem;
+    /* Чуть крупнее текст */
+    letter-spacing: 0.5px;
+    /* Немного разрядки для читаемости */
+    text-transform: uppercase;
+    transition: 0.3s;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 6px;
+}
+
+.btn-buy:hover {
+    transform: translateY(-2px);
+    opacity: 0.95;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.15);
+    /* Тень при наведении */
+}
+
+
+/* Специфичный стиль для кнопки баллов */
+
+.btn-buy.btn-points {
+    background: var(--accent-sand);
+    color: var(--primary-green);
+}
+
+.btn-buy.btn-points:hover {
+    background: #c0b093;
 }
